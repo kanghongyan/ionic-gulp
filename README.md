@@ -1,5 +1,12 @@
 # ionic quickstarter with gulp
 
+## 运行
+  npm edit confit 添加registry=http://registry.cnpmjs.org/
+  1.npm install -g ionic
+  2.npm install
+  3.bower install
+  4.ionic serve
+
 ## Table of Contents
 
   1. [Directory Structure Introduction](#directory-structure-introduction)
