@@ -1,12 +1,4 @@
-# ionic quickstarter with gulp
-
-## 运行
-  npm edit confit 添加registry=http://registry.cnpmjs.org/
-  1.npm install -g gulp/bower/ionic
-  2.npm install
-  3.bower install
-  4.ionic serve
-
+# ionic with gulp
 
 ## Directory Structure Introduction
 
@@ -69,7 +61,14 @@ Instead, we've chosen to organize the files on a Module basis: each Module is in
    * `lib` : thrid-party libraries managed by `bower`
    * `shared` : common components cross projects
    * `www` : compile the source code for the production environment
-
+### note:
+index.html说明 <head>里面不可删除任何东西,包括注释,gulp打包会用到
+1.必须 引入ionic.app.css 
+  当在src/app/下新建任何.scss文件,ionic.app.css里面就会更新,不需要手动引入
+2.可选 引入第三方库
+  (TODO:需要手动在gulpfile.js里修改路径,后续优化)
+3.不需要手动添加js,会自动跟新js引入
+4.app.template.js 最后上线打包时会用到,所有的template都会缓存
 
 #### Separate "src" and "www" directories
 
@@ -91,20 +90,6 @@ Example: in the structure shown above you can see two Modules: `app.home`.
 ##  Installation and usage
 
 #### Install Node
-You’d better use [nvm](https://github.com/creationix/nvm) to manage your node.js versions:
-
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.0/install.sh | bash
-    source ~/.nvm/nvm.sh
-    nvm install 0.12.7
-    nvm use 0.12.7
-    nvm alias default stable    # set 0.12.7 as default node version, not necessary
-
-**PS:** There are two options of node version in ionic. Typically, choose the older version(0.12.7) of node will make everything works fine. But if you want to use the newer version(such as 4.1.5 or 4.2), you have to change some setting in package.json:
-
-    -    "gulp-sass": "^1.3.3",
-    +    "gulp-sass": "^2.0.4",
-
-If you haven't change this, you may get some error when you `npm install`. When you run your app with `ionic serve` or `ionic emulate ios`, you found that scss compile failed and throw an error with `Error: The libsass binding was not found`.
 
 #### Install Ionic & Cordova
 
@@ -114,8 +99,8 @@ If you haven't change this, you may get some error when you `npm install`. When 
 
 #### Clone Repo
 
-    git clone git@github.com:chenbin92/ionic-quickstarter-with-gulp.git
-    cd ionic-quickstarter-with-gulp
+    git clone https://github.com/kanghongyan/ionic-gulp.git
+    cd ionic-gulp
 
 
 #### Install Dependencies
@@ -162,21 +147,21 @@ Notes:
 
 ## Switch development, staging and production mode
 
-If you do an ionic upload, then by default it will take your app from the `www` folder, not from `src`. This is because ionic upload takes the setting from the `ionic.project` file.
-
-
 ```
 # switch to development mode
+# copy ionic.development.project contents to ionic.project
 $ gulp build # same as running `gulp build --env development`
 ```
 
 ```
 # switch to staging mode
+# copy ionic.staging.project contents to ionic.project
 $ gulp build --env staging
 ```
 
 ```
-// switch to production mode
+# switch to production mode
+# copy ionic.production.project contents to ionic.project
 $ gulp build --env production
 ```
 
@@ -196,15 +181,6 @@ $ ionic emulate ios -l
 $ npm install -g ios-deploy
 $ ionic run ios --device -l -c
 ```
-
-
-### notes for multi enviorment
-
- set up the gulp file and the starter app in such a way that there are essentially 3 distinct 'modes':
-
-   * `development` mode which is what you use when running `ionic serve` and `gup build`  (running in the browser)
-   * `staging` mode which is what you use `gulp build --env staging` and `ionic run ios --device -l` (running on a device)
-   * `production` mode which is what you use with `gulp build` and `ionic run ios --device -l` (running on a device)
 
 #### Development mode
 
@@ -239,17 +215,6 @@ CLI:
   gulp build --env production
   ionic serve --nogulp
 
-### Ionic with gulp build
-
-##### gulp build process
-
-![gulp build process](http://7xr387.com1.z0.glb.clouddn.com/ionic-with-gulp-build-process.png.png)
-
-##### gulp build task
-![gulp build task](http://7xr387.com1.z0.glb.clouddn.com/Ionic-with-gulp-build2.png)
-
-##### Using gulp switch different environments  
-[ GIF demo](http://7xr387.com1.z0.glb.clouddn.com/ionic-with-gulp-build-process.gif)
 
 ---
 
@@ -266,12 +231,3 @@ CLI:
 
 1. [angular styleguide](https://github.com/johnpapa/angular-styleguide/tree/master/a1)
 2. [ionic quickstarter](https://github.com/leob/ionic-quickstarter)
-
-note:
-index.html说明 <head>里面不可删除任何东西,包括注释
-1.必须 引入ionic.app.css 
-  当在src/app/下新建任何.scss文件,ionic.app.css里面就会更新,不需要手动引入
-2.可选 引入第三方库
-  (TODO:需要手动在gulpfile.js里修改路径,后续优化)
-3.不需要手动添加js,会自动跟新js引入
-4.app.template.js 最后上线打包时会用到,所有的template都会缓存
