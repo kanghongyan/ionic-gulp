@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <!-- <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet"> -->
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
+  <!-- compiled css output -->
+  <!-- NOTE: the build-endbuild tags are used by gulp-htmlreplace - DO NOT REMOVE -->
+  <!-- build:sass -->
+  <link href="css/ionic.app.css" rel="stylesheet">
+  <!-- endbuild -->
+
+  <!-- NOTE: the build-endbuild tags are used by gulp-htmlreplace - DO NOT REMOVE -->
+  <!-- build:third-library-js -->
+  <!-- NOTE: the inject-endinject tags are used by gulp-inject - DO NOT REMOVE -->
+  <!-- inject:library:js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/zepto/zepto.min.js"></script>
+  <!-- endinject -->
+  <!-- endbuild -->
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <!-- NOTE: the build-endbuild tags are used by gulp-htmlreplace - DO NOT REMOVE -->
+  <!-- build:js -->
+  <!-- inject:app:js -->
+  <script src="app/app.filters.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/app.routes.js"></script>
+  <script src="app/app.templates.js"></script>
+  <script src="app/cando/cando.controller.js"></script>
+  <script src="app/cando/cando.service.js"></script>
+  <script src="app/chats/chats.service.js"></script>
+  <script src="app/config/config.js"></script>
+  <script src="app/dash/dash.controller.js"></script>
+  <script src="app/directive/test.js"></script>
+  <script src="app/chats/controllers/chats.controller.js"></script>
+  <script src="app/chats/controllers/chats_details.controller.js"></script>
+  <!-- endinject -->
+  <!-- endbuild -->
+
+  <!-- ANGULAR-TEMPLATECACHE -->
+  <!-- build:templates -->
+  <script src="app/app.templates.js"></script>
+  <!-- endbuild -->
+</head>
+  <body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+
+
+    <ion-side-menus
+      delegate-handle="main-menu"
+      enable-menu-with-back-views="true"
+    >
+
+      <ion-nav-view></ion-nav-view>
+
+    </ion-side-menus>
+
+  </body>
+
+<!--<script src="http://10.10.240.57:8888/target/target-script-min.js#anonymous"></script>-->
+
+</html>

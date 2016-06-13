@@ -1,0 +1,11 @@
+{
+  "constants": {
+    "APP": {
+      "devMode": true
+    },
+    "ServerConfiguration": {
+      "baseApiUrl": "http://localhost:3000/api/v1/",
+      "domain": "http://localhost:3000"
+    }
+  }
+}

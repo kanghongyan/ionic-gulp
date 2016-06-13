@@ -1,0 +1,11 @@
+{
+  "constants": {
+    "APP": {
+      "devMode": false
+    },
+    "ServerConfiguration": {
+      "baseApiUrl": "http://staging.com/api/v1/",
+      "domain": "http://staging.com"
+    }
+  }
+}

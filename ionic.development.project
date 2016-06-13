@@ -1,0 +1,17 @@
+{
+  "name": "ionic-quickstarter-with-gulp",
+  "proxies": [
+    {
+      "path": "v1/",
+      "proxyUrl": "http://localhost:3000/api/v1/"
+    }
+  ],
+  "gulpStartupTasks": [
+    "default"
+  ],
+  "watchPatterns": [
+    "src/**/*",
+    "!src/lib/**/*"
+  ],
+  "documentRoot": "src"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "starter.configs",
+  "constants": {
+    "BaseConfiguration": {
+      "url": "https://www.example.com",
+      "debug": false
+    }
+  }
+}
