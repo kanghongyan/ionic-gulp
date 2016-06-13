@@ -2,19 +2,10 @@
 
 ## 运行
   npm edit confit 添加registry=http://registry.cnpmjs.org/
-  1.npm install -g ionic
+  1.npm install -g gulp/bower/ionic
   2.npm install
   3.bower install
   4.ionic serve
-
-## Table of Contents
-
-  1. [Directory Structure Introduction](#directory-structure-introduction)
-  1. [Installation and usage](#Installation-and-usage)
-  1. [Switch development, staging and production mode](#Switch-development-staging-andproduction-mode)
-  1. [Ionic with gulp build](#Ionic-with-gulp-build)
-  1. [How to build an iOS ipa with Xcode](#How-to-build-an-iOS-ipa-with-Xcode)
-  1. [Factories](#factories)
 
 
 ## Directory Structure Introduction
