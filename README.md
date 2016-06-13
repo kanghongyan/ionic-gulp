@@ -61,14 +61,15 @@ Instead, we've chosen to organize the files on a Module basis: each Module is in
    * `lib` : thrid-party libraries managed by `bower`
    * `shared` : common components cross projects
    * `www` : compile the source code for the production environment
-### note:
-index.html说明 <head>里面不可删除任何东西,包括注释,gulp打包会用到
-1.必须 引入ionic.app.css 
-  当在src/app/下新建任何.scss文件,ionic.app.css里面就会更新,不需要手动引入
-2.可选 引入第三方库
-  (TODO:需要手动在gulpfile.js里修改路径,后续优化)
-3.不需要手动添加js,会自动跟新js引入
-4.app.template.js 最后上线打包时会用到,所有的template都会缓存
+   
+### note:index.html说明 <head>里面不可删除任何东西,包括注释,gulp打包会用到
+
+1. 必须 引入ionic.app.css 
+   当在src/app/下新建任何.scss文件,ionic.app.css里面就会更新,不需要手动引入
+2. 可选 引入第三方库
+   (TODO:需要手动在gulpfile.js里修改路径,后续优化)
+3. 不需要手动添加js,会自动跟新js引入
+4. app.template.js 最后上线打包时会用到,所有的template都会缓存
 
 #### Separate "src" and "www" directories
 
