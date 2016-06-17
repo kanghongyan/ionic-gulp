@@ -10,9 +10,9 @@ var del = require('del');
 var gulpCopy = require('gulp-copy');
 var watch = require('gulp-watch');
 var stripDebug = require('gulp-strip-debug');
+var autoprefixer = require('gulp-autoprefixer');
 /**
  * Linting Sass stylesheets with Stylelint
- * http://www.creativenightly.com/2016/02/How-to-lint-your-css-with-stylelint/
  */
 var postcss     = require('gulp-postcss');
 var reporter    = require('postcss-reporter');
@@ -65,6 +65,7 @@ var paths = {
     'src/app/**/*.js'
   ],
   dist: ['./www'],
+  font: ['./src/font/*.eot','./src/font/*.woff','./src/font/*.svg','./src/font/*.ttf', './src/lib/ionic/fonts/*'],
 
   lib: [
     './src/lib/ionic/js/ionic.bundle.js',
@@ -90,17 +91,12 @@ var developmentTask,
     stagingTask,
     productionTask;
 
-// development task
-//developmentTask = ['sass', 'set-api-config', 'copy-src-to-dest', 'watch-src-folder'];
-
 // production task
-//productionTask = ['sass', 'index', 'templates', 'copy-fonts', 'set-api-config', 'imagemin', 'common-imagemin', 'scripts', 'minify-third-library-js'];
 productionTask = ['sass', 'index','templates', 'copy-fonts', 'set-api-config', 'imagemin', 'common-imagemin', 'static-html-tpl','scripts-concat-min', 'minify-third-library-js'];
-
 // development task
 developmentTask = ['default'];
 // staging task
-stagingTask = ['sass', 'index','templates', 'copy-fonts', 'set-api-config', 'imagemin', 'common-imagemin', 'static-html-tpl','scripts-concat', 'minify-third-library-js'];;
+stagingTask = ['sass', 'index','templates', 'copy-fonts', 'set-api-config', 'imagemin', 'common-imagemin', 'static-html-tpl','scripts-concat', 'minify-third-library-js'];
 
 gulp.task('build', function(callback){
   runSequence('clean',
@@ -126,25 +122,23 @@ gulp.task('watch',['inject-libs-to-index-html', 'sass-dev','inject-index'],funct
       if(event.type == 'deleted' || event.type == 'added'){
         runSequence('inject-index')
       }
+    })
+    .on('error', function (error) {
+      console.log(error);
+      this.end();
     });
 });
 
 gulp.task('sass-dev', function (done) {
   gulp.src('./src/app/**/*.scss')
-    /*.pipe(sass({
-      errLogToConsole: true
-    }))*/
     .pipe(concat('custom-style.scss'))
-    /*.pipe(minifyCss({
-      processImport: true,
-      keepBreaks: true
-    }))*/
     .pipe(gulp.dest('./src/css/scss/'));
 
   gulp.src('./src/css/scss/ionic.app.scss')
     .pipe(sass())
-    .on('error', sass.logError)
+    .pipe(autoprefixer({browsers: ['last 3 versions']}))
     .pipe(gulp.dest('./src/css/'))
+    .on('error', sass.logError)
     .on('end', done);
 });
 
@@ -152,6 +146,7 @@ gulp.task('sass', function(done) {
   gulp.src('./src/css/scss/ionic.app.scss')
     .pipe(sass())
     .on('error', sass.logError)
+    .pipe(autoprefixer({browsers: ['last 3 versions']}))
     .pipe(gulp.dest('./src/css/'))
     .pipe(minifyCss({
       keepSpecialComments: 0
@@ -194,21 +189,6 @@ gulp.task('clean', function (cb) {
     paths.dist + '/**/*'
   ], cb);
 });
-
-// copy all files under the SRC to the WWW directory
-// =================================================================
-/*gulp.task('copy-src-to-dest', function() {
-  gulp.src(['./src/!**!/!*','./src/index.html'])
-    .pipe(gulp.dest('./www'));
-});*/
-
-// watch SRC folder
-// =================================================================
-/*gulp.task('watch-src-folder', function() {
-  gulp.src(['./src/!*','./src/!**!/!*'], {base: './src'})
-    .pipe(watch('./src', {base: './src'}))
-    .pipe(gulp.dest('./www'));
-});*/
 
 // scss
 // =================================================================
@@ -318,13 +298,6 @@ gulp.task('index', function() {
     .pipe(gulp.dest(paths.dist + '/.'));
 });
 
-gulp.task('install', ['git-check'], function() {
-  return bower.commands.install()
-    .on('log', function(data) {
-      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
-    });
-});
-
 // scripts task
 // =================================================================
 gulp.task('scripts-concat', function() {
@@ -349,31 +322,22 @@ gulp.task('scripts-concat-min', function() {
     .pipe(gulp.dest(paths.dist + '/js'));
 });
 
-/*
-* gulp.task('scripts-contact-min', function() {
- gulp.src(paths.scripts)
- .pipe(ngAnnotate({
- remove: false,
- add: true,
- single_quotes: true
- }))
- .pipe(uglify())
- .pipe(concat('app.bundle.min.js'))
- .pipe(gulp.dest(paths.dist + '/js'));
- });
-*
-* */
-
 // copy fonts task
+// =================================================================
 gulp.task('copy-fonts', function() {
-  return gulp.src(['./src/font/*', './src/lib/ionic/fonts/*'])
+  return gulp.src(paths.font)
              .pipe(gulpCopy(paths.dist,{prefix: 1}));
 });
 
 //
 // === OTHER TASKS (used by Ionic CLI default) ===
 //
-
+gulp.task('install', ['git-check'], function() {
+  return bower.commands.install()
+    .on('log', function(data) {
+      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
+    });
+});
 gulp.task('git-check', function(done) {
   if (!sh.which('git')) {
     console.log(

@@ -1,12 +1,24 @@
-# ionic with gulp
+# ionic project
 
-## Directory Structure Introduction
+## 约定：
 
-To support bigger apps, the starter app is structured differently than the basic `tabs starter app`.
+```
 
-The `tabs starter app` lumps all the `route` definitions and `controllers` in one Javascript file, and puts the html `templates` in a separate directory.
+1. 统一格式: 约定缩进2格，保持风格一致
 
-Instead, we've chosen to organize the files on a Module basis: each Module is in its own directory containing the Javascript (controllers etc) and the HTML (templates) for that Module. This makes it easier to keep a large app organized and maintainable.
+2. 样式文件: 
+
+    每个模块的scss都需要有一个唯一的class，即最外层的样式，约定为.page-xxx
+    公共样式约定为.g-xxx，在/src/css/scss/global.scss中
+    class命名风格：小写，单词之间统一用横线连接。例如：btn-primary 不推荐：btnPrimary
+
+3. 字体文件：
+
+    项目中已有自定义的iconfont，使用时可以参考/src/font/demo.html，找到相关图标的class
+
+```
+
+## 目录结构
 
 ```
 /
@@ -19,8 +31,7 @@ Instead, we've chosen to organize the files on a Module basis: each Module is in
 |    |    |    |
 |    |    |    |- home.module.js
 |    |    |    |- home.controller.js
-|    |    |    |- home.directive.js
-|    |    |    |- ($feature.$type.js)
+|    |    |    |- home.service.js
 |    |    |    |- home.html
 |    |    |    |- home.scss
 |    |    |
@@ -30,14 +41,20 @@ Instead, we've chosen to organize the files on a Module basis: each Module is in
 |    |    |    |- config.production.json
 |    |    |    |- config.js
 |    |    |
+|    |    |- directive/
+|    |    |    |- g-directive.js
+|    |    |
 |    |    |- app.js
 |    |    |- app.routes.js
-|    |    |- app.services.js
+|    |    |- app.filters.js
 |    |    |- app.templates.js
 |    |    |
 |    |- css/
 |    |    |- scss/
 |    |    |    |- ionic.app.scss (index file)
+|    |    |    |- custom-style.scss (all scss will be concat into this file)
+|    |    |    |- global.scss (global style)
+|    |    |    |- font.scss (custom font style)
 |    |    |- ionic.app.css (all css will be compiled into this file)
 |    |    |
 |    |- img/
@@ -60,56 +77,55 @@ Instead, we've chosen to organize the files on a Module basis: each Module is in
    * `img` : common images
    * `lib` : thrid-party libraries managed by `bower`
    * `shared` : common components cross projects
-   * `www` : compile the source code for the production environment
-   
-### note:index.html说明 <head>里面不可删除任何东西,包括注释,gulp打包会用到
+   * `www` : compile the source code for the staging/production environment
+## NOTE
 
-1. 必须 引入ionic.app.css 
+index.html说明 <head>里面不可删除任何东西,包括注释,gulp打包会用到
+1. 必须 引入ionic.app.css
    当在src/app/下新建任何.scss文件,ionic.app.css里面就会更新,不需要手动引入
 2. 可选 引入第三方库
-   (TODO:需要手动在gulpfile.js里修改路径,后续优化)
-3. 不需要手动添加js,会自动跟新js引入
+3. 不需要手动添加js,gulp会自动更新js引入到index.html中
 4. app.template.js 最后上线打包时会用到,所有的template都会缓存
 
-#### Separate "src" and "www" directories
+## Switch development, staging and production mode
 
 The app's sources (JavaScript, HTML, CSS) sit under `src` instead of under the default location `www`.
 
-During a production build (`gulp build --env production`), the sources (under `src`) are minified and concatenated and so on and the products (build artifacts, the minified/concatenated files) are then placed in the `www` directory, where Cordova (through the `gulp build --env production` or `ionic run --emulator -l` process) will pick them up.
+During a production build (`gulp build --env production`), the sources (under `src`) are minified and concatenated and so on and the products (build artifacts, the minified/concatenated files) are then placed in the `www` directory
 
+1. `ionic serve` (默认开发环境 `gulp build --env development`)
+    
+    开发环境下，源文件在src/
+    
+2. `gulp build --env staging`
+    
+    `ionic serve --nogulp` (ionic.project需采用ionic.staging.project里的配置)
+    
+    test环境下，src中文件会打包到www/下，包括js文件，css文件的合并 （不压缩）
 
-#### Modules
+3.  `gulp build --env production`
+        
+    `ionic serve --nogulp` (ionic.project需采用ionic.production.project里的配置)
 
-General principle: ONE DIRECTORY == ONE MODULE (and one subdirectory == 1 sub module).
-
-So you can remove a module by removing that directory (but then you still need to remove the module reference from `app.js` - the script include in `index.html` will be removed automatically by the build process).
-
-Example: in the structure shown above you can see two Modules: `app.home`.
-
----
+     production环境，src中文件会打包到www/下，包括js文件，css文件的合并 （压缩）
+     
 
 ##  Installation and usage
 
 #### Install Node
 
-#### Install Ionic & Cordova
+#### Install npm
 
-    npm install -g cordova ionic
-    npm install -g ios-deploy   # for ios deploy
-    npm install -g ios-sim      # for ios simulator
-
-#### Clone Repo
-
-    git clone https://github.com/kanghongyan/ionic-gulp.git
-    cd ionic-gulp
-
+     npm install bower -g
+     npm install gulp -g
+     npm install ionic -g
 
 #### Install Dependencies
 
   We have two kinds of dependencies in this project: `npm` and `bower`
 
-    npm install
-    bower install
+    npm install 
+    bower install (用git bash 来执行这个命令，CMD下可能有错，无法安装lib)
 
   Run the installed，you should find that you have two new folders in your project
 
@@ -134,101 +150,17 @@ Notes:
     ]
   ```
 
-#### Build IOS project and run on emulate
-    $ ionic platform add ios
-    $ ionic build ios
-    $ gulp build
-    $ ionic emulate ios  # run your ios app in emulator
-
 #### Run the Application on browser
     $ gulp build   # equals `gulp build --env development`
     $ ionic serve  # run this in another terminal window
 
----
-
-## Switch development, staging and production mode
-
-```
-# switch to development mode
-# copy ionic.development.project contents to ionic.project
-$ gulp build # same as running `gulp build --env development`
-```
-
-```
-# switch to staging mode
-# copy ionic.staging.project contents to ionic.project
-$ gulp build --env staging
-```
-
-```
-# switch to production mode
-# copy ionic.production.project contents to ionic.project
-$ gulp build --env production
-```
-
-then run project in borwser, emulator or device
-
-```
-# run in borwser
-$ ionic serve
-
-# prepare the source for xcode
-$ ionic build ios
-
-# run on emulator
-$ ionic emulate ios -l
-
-# or run on device
-$ npm install -g ios-deploy
-$ ionic run ios --device -l -c
-```
-
-#### Development mode
-
-In development mode, the gulp build process is simple: no minification, concatenation etc.
-
-By default, in development mode, the various services (login etc) use a "mock" implementation with fake data (but you can easily override this through configuration parameters).
-
-To define configuration parameters for development mode, add them to `src/js/config/config-development.json`. The `gulp build` process will write these values to `src/js/config/config.js`.
-
-CLI:
-  ionic serve
-
-#### Staging mode
-
-In staging mode (used on a real device), the `gulp build --env staging` process does a complete build including minification, concatenation etc, and the app runs with 'real' services.
-
-To define configuration parameters for development mode, add them to `src/js/config/config-staging.json`. The gulp build process will write these values to `src/js/config/config.js`.
-
-CLI:
-  gulp build --env staging
-  ionic serve --nogulp
-
-#### Production mode
-
-In production mode (used on a real device), the `gulp build --env production` process similar to the staging, In addition to setting the API path.
-
-(e.g. the Parse service for login, but you can replace this with an implementation of your own)
-
-To define configuration parameters for development mode, add them to `src/js/config/config-production.json`. The gulp build process will write these values to `src/js/config/config.js`.
-
-CLI:
-  gulp build --env production
-  ionic serve --nogulp
 
 
----
+### Ionic with gulp build
 
-## How to build an iOS ipa with Xcode
+   gulp buid task
 
-1. `$ gulp build --env production`
-2. `$ ionic build ios`
-3. open platforms/ios/ProkectName.xcodeproj
-4. choose `Generic iOS Device` for `Set the active scheme`
-5. click `Product > Archive`
-6. Upload to App Store or Export(Save for Enterprise Deployment)
 
-## Refs
 
-1. [angular styleguide](https://github.com/johnpapa/angular-styleguide/tree/master/a1)
-2. [ionic quickstarter](https://github.com/leob/ionic-quickstarter)
+
+

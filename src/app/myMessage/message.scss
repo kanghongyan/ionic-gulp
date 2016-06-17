@@ -1,0 +1,39 @@
+.page-message{
+  @mixin radius-box($radius: 6px,$bg: rgba(0,0,0,.4)){
+    border-radius: $radius;
+    background: $bg;
+    text-align: center;
+    padding: 6px 8px;
+    line-height: 1.5;
+    color: #fff;
+  }
+  .inner{
+    padding: 15px;
+  }
+  .time-box{
+    background: $g-color-grey;
+    @include radius-box();
+    margin: 5px auto;
+    width: 140px;
+    line-height: 20px;
+  }
+  .message-item-list{
+    @include box-shadow();
+    border: solid 1px $g-color-border-grey;
+    padding: 14px;
+    border-radius: 6px;
+    margin: 15px 0;
+    .status{
+      display: inline-block;
+      @include radius-box();
+      margin: 10px 0;
+    }
+    .status-red{
+      @extend .status;
+      background: $g-color-red;
+    }
+    .cont{
+      line-height: 24px;
+    }
+  }
+}

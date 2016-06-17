@@ -1,0 +1,118 @@
+.page-account{
+  background: $g-bg-grey;
+  p{
+    margin: 0;
+  }
+  //图标定义
+  .iconfont{
+    font-size: 22px;
+  }
+  i.icon-arrow-rt{
+    float: right;
+    color: $g-color-grey;
+    font-size: 12px;
+  }
+  i.icon-bell{
+    color: $g-color-yellow;
+  }
+  i.icon-heart-solid{
+    color: $g-color-red;
+  }
+  i.icon-cash-bag{
+    color: $g-color-blue;
+  }
+  i.icon-address{
+    color: $g-color-green;
+  }
+  i.icon-group{
+    color: $g-color-purple;
+    font-size: 18px;
+  }
+
+  //头像部分
+  .profile-panel{
+    @include box-shadow;
+    position: relative;
+    background: #fff;
+    margin-bottom: 20px;
+    .profile{
+      position: relative;
+      height: 120px;
+      background: url("../img/profile-bg.jpg") no-repeat center / cover;
+      overflow: visible;
+      .img{
+        position: absolute;
+        top: 66px;
+        left: 50%;
+        margin-left: -37px;
+        text-align: center;
+        img{
+          width: 74px;
+          height: 74px;
+          border-radius: 50%;
+        }
+      }
+    }
+    .info{
+      margin-top: 68px;
+      display: flex;
+      padding-bottom: 20px;
+      .info-item{
+        a{
+          display: block;
+        }
+        p{
+          color: $g-font-color-grey;
+          font-weight: normal;
+          margin-bottom: 10px;
+        }
+        span{
+          font-size: 32px;
+        }
+        color: $g-color-red;
+        font-weight: bold;
+        flex: 1;
+        margin-left: -1px;
+        border-left: solid 1px #ccc;
+        text-align: center;
+      }
+    }
+    .setting{
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      color: #fff;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+    }
+  }
+
+  //列表，覆盖一些ionic原有样式
+  .list{
+    background: #fff;
+    overflow: hidden;
+    .item{
+      padding: 0 0 0 48px;
+      height: 44px;
+      line-height: 44px;
+      border: 0;
+      margin: 0;
+      background: #fff;
+      overflow: visible;
+      .icon{
+        left: 8px;
+      }
+      p{
+        display: block;
+        border-top: solid 1px $g-color-grey;
+        margin-top: -2px;
+        padding-right: 15px;
+        color: $g-font-color;
+      }
+    }
+  }
+
+}

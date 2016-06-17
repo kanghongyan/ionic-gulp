@@ -1,1 +1,108 @@
-$g-font-color: #ff0000;
+$g-color-red: #ff5555;
+$g-color-yellow: #f8c555;
+$g-color-blue: #55b5ff;
+$g-color-green: #5cc777;
+$g-color-grey: #ccc;
+$g-color-purple: #abafff;
+
+$g-bg-grey: #eee;
+
+$g-color-border-grey: #dfdfe0;
+
+$g-font-color: #111;
+$g-font-color-grey: #999999;
+$g-font-color-grey-bold: #808080;
+
+body{
+  color: $g-font-color;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+//盒子阴影
+@mixin box-shadow($shadowColor: #ccc){
+  box-shadow: 0 2px 4px $shadowColor;
+}
+
+//右上方的标志 eg：订单列表里用到
+@mixin side-tip($bgColor: #999, $fontColor: #fff, $width: 60px){
+  position: relative;
+  display: block;
+  text-align: center;
+  width: $width;
+  height: 18px;
+  background: $bgColor;
+  color: $fontColor;
+  &:before,&:after{
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    width: 0;
+    height: 0;
+  }
+  &:before{
+    left: 0;
+    border-width: 0 0 6px $width/2;
+    border-color: transparent transparent transparent $bgColor;
+    border-style: dashed dashed dashed solid
+  }
+  &:after{
+    right: 0;
+    border-width: 0 $width/2 6px 0;
+    border-color: transparent $bgColor transparent transparent;
+    border-style: dashed solid dashed dashed
+  }
+}
+
+//一行或两行多余文字显示省略号
+@mixin text-ellipsis($line: 1,$lineHeight: 16px,$fontSize: 14px){
+  overflow: hidden;
+  font-size: $fontSize;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  @if $line ==1 {
+    white-space: nowrap;
+    height: $lineHeight;
+    line-height: $lineHeight;
+    font-size: 14px;
+  } @else {
+    display: -webkit-box;
+    height: $lineHeight*2;
+    line-height: $lineHeight;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+}
+
+.g-highlight-red{
+  color: $g-color-red;
+}
+
+.g-contact{
+  width: 80%;
+  border: solid 1px $g-color-red;
+  line-height: 38px;
+  height: 42px;
+  color: $g-color-red;
+  border-radius: 4px;
+  margin: 20px auto;
+  text-align: center;
+  .iconfont{
+    margin-right: 10px;
+  }
+  span{
+
+  }
+  .iconfont,span{
+    vertical-align: middle;
+    font-size: 18px;
+  }
+  a{
+    display: block;
+    height: 100%;
+  }
+}
+

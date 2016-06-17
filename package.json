@@ -1,10 +1,11 @@
 {
-  "name": "ionic-quickstarter-with-gulp",
+  "name": "ionic-gulp",
   "version": "1.1.1",
-  "description": "ionic-quickstarter-with-gulp: An Ionic project",
+  "description": "epai_timed",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-angular-templatecache": "^1.8.0",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.2.0",
     "gulp-extend": "^0.2.0",
     "gulp-html-replace": "^1.5.5",
@@ -42,5 +43,11 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [],
+  "author": "kanghongyan",
+  "license": "MIT",
+  "repository":{
+    "type": "git",
+    "url": "git@git.epailive.com:epailive/epai_php_auction.git"
+  }
 }

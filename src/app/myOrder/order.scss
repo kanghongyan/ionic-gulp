@@ -1,0 +1,54 @@
+.page-order{
+  p{
+    padding: 0;
+    margin: 0;
+  }
+  .order-list{
+    position: relative;
+    margin: 20px 14px;
+    border-radius: 6px;
+    display: flex;
+    @include box-shadow();
+    .img{
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      img{
+        width: 100%;
+      }
+    }
+    .cont{
+      flex: 1;
+      width: 1%;
+      padding: 28px 13px 0 13px;
+      position: relative;
+      .side-tip{
+        @include side-tip();
+        position: absolute;
+        right: 16px;
+        top: 0
+      }
+      .title{
+        width: 100%;
+        @include text-ellipsis(2,20px)
+      }
+      .price{
+        line-height: 24px;
+        color: $g-font-color-grey-bold;
+        span{
+          float: right;
+        }
+      }
+      .bt{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: $g-font-color-grey;
+        border-top: solid 1px $g-color-grey;
+        line-height: 26px;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+<ion-view view-title="个人中心" class="page-account">
+  <ion-content>
+    <div class="profile-panel">
+      <div class="profile">
+        <div class="img">
+          <img src={{portraitUrl}}>
+          <p>name</p>
+        </div>
+      </div>
+      <div class="info">
+        <div class="info-item">
+          <a ui-sref="tab.orderList({orderStatus: 0})">
+            <p>参拍中</p>
+            <span>2</span>
+          </a>
+        </div>
+        <div class="info-item">
+          <a ui-sref="tab.orderList({orderStatus: 1})">
+            <p>已拍下</p>
+            <span>33</span>
+          </a>
+        </div>
+        <div class="info-item">
+          <a ui-sref="tab.orderList({orderStatus: 2})">
+            <p>未竞得</p>
+            <span>120</span>
+          </a>
+        </div>
+      </div>
+      <a class="setting" ui-sref="tab.dash"><i class="iconfont icon-setting"></i></a>
+    </div>
+
+    <div class="list">
+      <a class="item item-icon-left item-icon-right" ui-sref="tab.message">
+        <i class="icon iconfont icon-bell"></i>
+        <p>消息提醒 <span class="g-highlight-red">(5条)</span><i class="iconfont icon-arrow icon-arrow-rt"></i></p>
+      </a>
+      <a class="item item-icon-left item-icon-right" href="#/mylove">
+        <i class="icon iconfont icon-address"></i>
+        <p>我喜欢的<i class="iconfont icon-arrow icon-arrow-rt"></i></p>
+      </a>
+    </div>
+
+    <div class="list">
+      <a class="item item-icon-left item-icon-right" href="#">
+        <i class="icon iconfont icon-cash-bag"></i>
+        <p>资金管理<i class="iconfont icon-arrow icon-arrow-rt"></i></p>
+      </a>
+      <a class="item item-icon-left" href="#">
+        <i class="icon iconfont icon-address"></i>
+        <p>地址管理<i class="iconfont icon-arrow icon-arrow-rt"></i></p>
+      </a>
+    </div>
+
+    <div class="list">
+      <a class="item item-icon-left" href="#">
+        <i class="icon iconfont icon-group"></i>
+        <p>关于我们<i class="iconfont icon-arrow icon-arrow-rt"></i></p>
+      </a>
+    </div>
+
+    <g-contact></g-contact>
+
+  </ion-content>
+</ion-view>

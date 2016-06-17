@@ -1,0 +1,30 @@
+<ion-view title="{{ORDER_STATUS | orderStatus}}" class="page-order">
+  <ion-content>
+    <ion-list>
+      <div ng-repeat="list in orderLists">
+        <div class="order-list">
+          <div class="img">
+            <p>距离结束<span>{{countDownInit | date: 'yyyy-MM-dd HH:mm:ss'}}</span></p>
+            <g-count-down init-value="countDownInit" server-time="countDownServeTime" count-flag="0"></g-count-down>
+            <img src="">
+          </div>
+          <div class="cont">
+            <p class="title">沙发斯蒂芬方法反反复复凤飞飞反复方法反反复复凤飞飞反复</p>
+            <p class="price">我的出价<span class="g-highlight-red">&yen; {{list.price}}</span></p>
+            <p class="price">成交价<span class="g-highlight-red">&yen; 198,000</span></p>
+            <p ng-show="true" class="bt">
+              &yen;200 保证金已释放
+            </p>
+            <div class="side-tip">{{list.flag}}</div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+
+    <ion-infinite-scroll
+        ng-if="hasData"
+        on-infinite="loadMore()"
+        distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

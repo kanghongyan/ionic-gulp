@@ -11,7 +11,8 @@
   ],
   "watchPatterns": [
     "src/**/*",
-    "!src/lib/**/*"
+    "!src/lib/**/*",
+    "!src/css/scss/*"
   ],
   "documentRoot": "src"
 }
