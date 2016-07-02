@@ -1,4 +1,6 @@
 $g-color-red: #ff5555;
+$g-color-light-red: #ff5353;
+$g-color-heave-red: #c52e63;
 $g-color-yellow: #f8c555;
 $g-color-blue: #55b5ff;
 $g-color-green: #5cc777;
@@ -19,6 +21,82 @@ body{
 a{
   color: inherit;
   text-decoration: none;
+}
+
+.g-highlight-red{
+  color: $g-color-red;
+}
+.g-highlight-grey{
+  color: $g-font-color-grey;
+}
+
+.g-btn{
+  display: block;
+  border-radius: 4px;
+  background: $g-color-red;
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+  margin: 10px 0;
+  border: solid 1px $g-color-red;
+}
+.g-btn.activated{
+  background-color: $g-color-heave-red;
+  border-color: $g-color-heave-red;
+}
+.g-btn-white.activated{
+  background-color: #fff;
+  border-color: $g-color-red;
+}
+.g-btn-white{
+  background: #fff;
+  color: $g-color-red;
+}
+.g-btn-s{
+  width: auto;
+  padding: 0 10px;
+  line-height: 22px;
+  display: inline-block;
+}
+.g-dialog{
+  .popup{
+    border-radius: 4px;
+  }
+  .popup-head{
+    position: relative;
+  }
+  .popup-icon{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -20px;
+    left: 50%;
+    margin-left: -20px;
+    background: $g-color-red;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    .iconfont{
+      font-size: 18px;
+    }
+  }
+  .popup-body{
+    text-align: center;
+    min-height: 60px;
+  }
+  .popup-buttons{
+    border-top: solid 1px $g-color-border-grey;
+    overflow: hidden;
+    min-height: 40px;
+    padding: 0;
+    border-radius: 0 0 4px 4px;
+    .button{
+      height: 40px;
+      border: solid 1px $g-color-border-grey;
+      margin: -1px;
+    }
+  }
 }
 
 //盒子阴影
@@ -77,10 +155,7 @@ a{
 
 }
 
-.g-highlight-red{
-  color: $g-color-red;
-}
-
+/*gContact directive 样式*/
 .g-contact{
   width: 80%;
   border: solid 1px $g-color-red;
@@ -105,4 +180,106 @@ a{
     height: 100%;
   }
 }
-
+/*gTabSwitch directive 样式*/
+.g-tab-switch{
+  background: #fff;
+  display: flex;
+  border-bottom: solid 1px #ccc;
+  position: relative;
+  a{
+    display: block;
+    line-height: 40px;
+    flex: 1;
+    position: relative;
+    border: solid 2px transparent;
+    text-align: center;
+  }
+  a.cur{
+    border-bottom-color: $g-color-red;
+    color: $g-color-red;
+    &:after{
+      position: absolute;
+      content: '';
+      display: block;
+      left: 50%;
+      margin-left: -3px;
+      bottom: -1px;
+      height: 0;
+      border-width: 0 6px 6px 6px;
+      border-color: transparent transparent $g-color-red transparent;
+      border-style: dashed dashed solid dashed
+    }
+  }
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    height: 22px;
+    width: 100%;
+    left: 0;
+    bottom: -22px;
+    background: url("../img/shadow.png") no-repeat center / contain;
+  }
+}
+/*gCheckBox directive 样式*/
+.g-check-box{
+  position: relative;
+  width: 48px;
+  height: 48px;
+  input[type='checkbox']{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  i.icon-check{
+    display: inline-block;
+    border: solid 1px #999;
+    background: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    font-size: 12px;
+    margin-right: 8px;
+    &:before{
+      transform: scale(.7);
+      display: inline-block;
+    }
+  }
+  i.icon-checked{
+    background: $g-color-red;
+    border: solid 1px $g-color-red;
+  }
+  i.icon-check{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+  }
+}
+/*commonAlert service 样式*/
+.g-alert-msg{
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  bottom: 140px;
+  max-width: 80%;
+  margin: auto;
+  background: rgba(0,0,0,.6);
+  border-radius: 6px;
+  color: #fff;
+  padding: 10px;
+  opacity: 1;
+  transition: opacity 1s;
+  text-align: center;
+}
+.g-alert-hide{
+  opacity: 0;
+}

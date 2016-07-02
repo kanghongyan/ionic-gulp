@@ -7,6 +7,11 @@
     .module('starter')
     .directive('gContact', contactDirective);
 
+  /**
+   * 联系我们directive
+   * @returns {{restrict: string, replace: boolean, templateUrl: string}}
+   */
+
   function contactDirective(){
     return{
       restrict: 'EA',

@@ -11,12 +11,17 @@ angular.module('starter', [
     'starter.routes',
     'starter.configs',
     'starter.filters',
+    'starter.common.services',
 
 
-    'templates'
+    'templates',
+	'ionic-citypicker'
 ])
 
-    .run(function ($rootScope, $ionicPlatform, $ionicConfig,$ionicLoading,$timeout) {
+    .run(function ($rootScope, $ionicPlatform, $ionicConfig,$ionicLoading,$timeout, $ionicTabsDelegate) {
+
+        $rootScope.hideTabs = false;//是否隐藏tab
+
         $ionicPlatform.ready(function () {
 
             $rootScope.$on('$locationChangeStart',function(event, next, current){

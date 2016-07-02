@@ -53,3 +53,11 @@
 .icon-kind-active:before { content: "\e624"; }
 .icon-icon-cash-bag:before { content: "\e625"; }
 .icon-icon-dai:before { content: "\e626"; }
+.icon-shalou:before{ content: "\e627" }
+.icon-gift:before{ content: "\e628" }
+.icon-info:before { content: "\e629"; }
+.icon-sort:before { content: "\e62a"; }
+.icon-checking:before { content: "\e62b"; }
+.icon-airplane:before { content: "\e62c"; }
+.icon-deliver:before { content: "\e62d"; }
+.icon-delivered:before { content: "\e62e"; }

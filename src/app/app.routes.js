@@ -13,7 +13,11 @@ angular.module('starter.routes', [])
     // setup an abstract state for the tab directive
       .state('tab', {
         url: '',
-        templateUrl: 'app/tabs/tabs.html'
+        templateUrl: 'app/tabs/tabs.html',
+        abstract: true,
+        controller: function ($scope) {
+
+        }
       })
 
       .state('tab.dash', {
@@ -26,16 +30,6 @@ angular.module('starter.routes', [])
         }
       })
 
-      .state('tab.chats', {
-        url: '/list',
-        views: {
-          'tab-chats': {
-            templateUrl: 'app/chats/templates/tab-chats.html',
-            controller: 'ChatsController'
-          }
-        }
-      })
-
       .state('tab.account', {
         url: '/account',
         views: {
@@ -43,6 +37,16 @@ angular.module('starter.routes', [])
             templateUrl: 'app/account/account.html',
             controller: 'AccountController'
           }
+        },
+        //resolve: provide your controller with content or data that is custom to the state.
+        resolve: {
+
+        },
+        onEnter: function() {
+
+        },
+        onExit: function () {
+
         }
       })
 
@@ -55,14 +59,81 @@ angular.module('starter.routes', [])
               if($stateParams.orderStatus == 0){
                 return 'app/myOrder/templates/orderList.html'
               }
-              if($stateParams.orderStatus == 1){
-                return 'app/myOrder/templates/orderListDone.html'
-              }
               if($stateParams.orderStatus == 2){
                 return 'app/myOrder/templates/orderListFail.html'
               }
             },
             controller: 'orderListController'
+          }
+        }
+      })
+
+      .state('tab.orderListEarn', {
+        url: '/orderListEarn/',
+        views: {
+          'tab-account': {
+            templateUrl: 'app/myOrder/templates/orderListDone.html',
+            controller: 'OrderListDoneController'
+          }
+        }
+      })
+
+      .state('tab.orderPay', {
+        url: '/account/pay',
+        views: {
+          'tab-account': {
+            templateUrl: 'app/myOrder/templates/payDetail.html',
+            controller: 'PayController'
+          }
+        }
+      })
+
+      .state('tab.undeliveredOrder', {
+        url: '/account/order/undelivered',
+        views: {
+          'tab-account': {
+            templateUrl: 'app/myOrder/templates/undeliveredDetail.html',
+            controller: 'UndeliveredController'
+          }
+        }
+      })
+
+      .state('tab.deliveredOrder', {
+        url: '/account/order/delivered',
+        views: {
+          'tab-account': {
+            templateUrl: 'app/myOrder/templates/deliveredDetail.html',
+            controller: 'DeliveredController'
+          }
+        }
+      })
+
+      .state('tab.returnedOrder', {
+        url: '/account/order/returned',
+        views: {
+          'tab-account': {
+            templateUrl: 'app/myOrder/templates/returnedDetail.html',
+            controller: 'ReturnedController'
+          }
+        }
+      })
+
+      .state('tab.orderDetail', {
+        url: '/orderDetail/:orderId',
+        views: {
+          'tab-account': {
+            templateUrl: 'app/myOrder/templates/orderDetail.html',
+            controller: 'OrderDetailController'
+          }
+        }
+      })
+
+      .state('tab.deliverInfo', {
+        url: '/account/order/deliverInfo/:id',
+        views: {
+          'tab-account': {
+            templateUrl: 'app/myOrder/templates/deliverInfo.html',
+            controller: 'DeliverInfoController'
           }
         }
       })
@@ -74,6 +145,23 @@ angular.module('starter.routes', [])
             templateUrl: 'app/myMessage/message.html',
             controller: 'MessageController'
           }
+        },
+        resolve: {
+          initData: function () {
+            return {
+              msgDetailShow: false,
+              modal: null
+            };
+          }
+        },
+        onExit: function (initData, $location) {
+          /*console.log(initData)
+          if(initData.msgDetailShow){
+            //console.log($state);
+            initData.modal.hide()
+            //$state.go('tab.message')
+            $location.path('/message')
+          }*/
         }
       })
 
@@ -86,16 +174,6 @@ angular.module('starter.routes', [])
           }
         }
       })
-
-      .state('tab.mylove', {
-        url: '/mylove',
-        views: {
-          'tab-account': {
-            templateUrl: 'app/mylove/mylove.html',
-            controller: 'MyLoveController'
-          }
-        }
-      });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/index');

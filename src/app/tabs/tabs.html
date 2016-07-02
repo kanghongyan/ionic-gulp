@@ -1,12 +1,12 @@
-<ion-tabs class="tabs-icon-top page-tabs">
+<ion-tabs class="tabs-icon-top page-tabs" delegate-handle="mainNav" ng-class="{'tabs-item-hide': hideTabs}">
   <!-- home tab -->
   <ion-tab title="首页" icon-on="iconfont icon-home-active" icon-off="iconfont icon-home" href="#/index">
     <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
   <!-- list tab -->
-  <ion-tab title="分类" icon-on="iconfont icon-kind-active" icon-off="iconfont icon-kind" href="#/list">
-    <ion-nav-view name="tab-chats"></ion-nav-view>
+  <ion-tab title="分类" icon-on="iconfont icon-kind-active" icon-off="iconfont icon-kind" href="#/classify">
+    <ion-nav-view name="tab-classify"></ion-nav-view>
   </ion-tab>
 
   <!-- profile tab -->

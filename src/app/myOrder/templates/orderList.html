@@ -1,20 +1,17 @@
-<ion-view title="{{ORDER_STATUS | orderStatus}}" class="page-order">
+<ion-view title="{{ORDER_TYPE | orderStatus}}" class="page-order-common page-order" g-hide-tabs="hideTabs">
   <ion-content>
     <ion-list>
       <div ng-repeat="list in orderLists">
-        <div class="order-list">
+        <div class="order-list" ui-sref="tab.orderDetail({orderId: '12345'})">
           <div class="img">
-            <p>距离结束<span>{{countDownInit | date: 'yyyy-MM-dd HH:mm:ss'}}</span></p>
-            <g-count-down init-value="countDownInit" server-time="countDownServeTime" count-flag="0"></g-count-down>
+            <div class="time">
+              <p>距离结束 <span class="g-highlight-red"><g-count-down init-value="countDownInit" server-time="countDownServeTime" count-flag="0"></g-count-down></span></p>
+            </div>
             <img src="">
           </div>
           <div class="cont">
             <p class="title">沙发斯蒂芬方法反反复复凤飞飞反复方法反反复复凤飞飞反复</p>
-            <p class="price">我的出价<span class="g-highlight-red">&yen; {{list.price}}</span></p>
-            <p class="price">成交价<span class="g-highlight-red">&yen; 198,000</span></p>
-            <p ng-show="true" class="bt">
-              &yen;200 保证金已释放
-            </p>
+            <p class="price" style="margin-top: 30px;">我的出价<span class="g-highlight-red">&yen; {{list.price}}</span></p>
             <div class="side-tip">{{list.flag}}</div>
           </div>
         </div>

@@ -8,10 +8,10 @@
       .module('starter')
       .controller('AccountController', AccountController);
 
-  AccountController.$inject = ['$scope', 'AccountService'];
+  AccountController.$inject = ['$rootScope', '$scope', 'AccountService'];
 
 
-  function AccountController($scope, Account){
+  function AccountController($rootScope, $scope, Account){
 
     var vm = $scope;
 

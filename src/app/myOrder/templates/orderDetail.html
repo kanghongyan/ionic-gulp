@@ -1,3 +1,77 @@
-<ion-view title="订单详情">
-
+<ion-view title="订单详情" class="page-order-common page-order-detail">
+  <ion-content>
+    <ion-title>
+      <p class="detail-title">
+        <span>领先</span>
+        <span>距离结束 <b class="g-highlight-red"><g-count-down init-value="1468674271028" server-time="" count-flag="1"></g-count-down></b></span>
+      </p>
+    </ion-title>
+    <div class="card">
+      <div class="hd">
+        <p>
+          <span>拍品名称</span>
+          <span>百年正常顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶大大大</span>
+        </p>
+      </div>
+      <div class="bd">
+        <p>
+          <span>当前价</span>
+          <span class="g-highlight-red">&yen; 2,000</span>
+        </p>
+        <p>
+          <span>我的出价<i class="iconfont icon-icon-dai"></i></span>
+          <span class="g-highlight-red">&yen; 2,000</span>
+        </p>
+      </div>
+    </div>
+    <div class="record">
+      <p class="tit">出价记录6条</p>
+      <div class="record-main" ng-class="{'record-main-more': true}">
+        <ion-scroll style="height: 100%" delegate-handle="recordLoad">
+          <p class="item">
+            <span>d***d</span>
+            <span>领先</span>
+            <span>03-15 14:08</span>
+            <span>&yen; 20339</span>
+          </p>
+          <p class="item">
+            <span>d***d</span>
+            <span>领先</span>
+            <span>03-15 14:08</span>
+            <span>&yen; 20339</span>
+          </p>
+          <p class="item">
+            <span>d***d</span>
+            <span>领先</span>
+            <span>03-15 14:08</span>
+            <span>&yen; 20339</span>
+          </p>
+          <p class="item">
+            <span>d***d</span>
+            <span>领先</span>
+            <span>03-15 14:08</span>
+            <span>&yen; 20339</span>
+          </p>
+          <p class="item">
+            <span>d***d</span>
+            <span>领先</span>
+            <span>03-15 14:08</span>
+            <span>&yen; 20339</span>
+          </p>
+          <p class="item">
+            <span>d***d</span>
+            <span>领先</span>
+            <span>03-15 14:08</span>
+            <span>&yen; 20339</span>
+          </p>
+          <ion-infinite-scroll
+              ng-if="scrollHasMore"
+              on-infinite="loadMoreRecord()"
+              distance="1%">
+          </ion-infinite-scroll>
+        </ion-scroll>
+      </div>
+    </div>
+    <g-contact></g-contact>
+  </ion-content>
 </ion-view>

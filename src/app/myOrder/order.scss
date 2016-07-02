@@ -1,3 +1,262 @@
+/*订单相关公共样式*/
+.page-order-common{
+  p{
+    margin: 0;
+    padding: 0;
+  }
+  .two-ellipsis{
+    display: inline-block;
+    width: 100%;
+    @include text-ellipsis(2, 20px, 14px)
+  }
+  .font-l{
+    font-size: 32px;
+    line-height: normal;
+  }
+  .g-check-box{
+    position: absolute;
+    left: 0;
+    top: 40px;
+  }
+  .m-cont-bottom{
+    bottom: 40px;
+  }
+  .m-pay{
+    position: fixed;
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: solid 1px #c2c2c2;
+    line-height: 44px;
+    padding: 0 16px;
+    display: flex;
+    .g-check-box{
+      top: 0;
+    }
+    .lf{
+      width: 100px;
+    }
+    .rt{
+      flex: 1;
+      text-align: right;
+    }
+    span{
+      vertical-align: middle;
+    }
+    .font-l{
+      font-size: 26px;
+    }
+    .g-btn{
+      display: inline-block;
+      width: 60px;
+      margin: 7px 0 0 0;
+    }
+    .select-all{
+      margin-left: 26px;
+    }
+  }
+  .m-card{
+    margin: 14px 16px;
+    border: solid 1px #f0f0f0;
+    $padding: 14px 14px;
+    border-radius: 6px;
+    p{
+      margin: 0;
+      padding: 0;
+    }
+    @include box-shadow();
+    li{
+      display: flex;
+      margin: 4px 0;
+      line-height: 24px;
+      p{
+        &:nth-child(1){
+          width: 100px;
+          color: #999;
+        }
+        &:nth-child(2){
+          flex: 1;
+          width: 1%;
+          text-align: right;
+        }
+      }
+    }
+    .card-hd{
+      padding: $padding;
+      position: relative;
+      .status{
+        position: absolute;
+        right: 10px;
+        top: 20px;
+      }
+    }
+    .card-bd{
+      padding: 6px 14px;
+      border-top: solid 1px #ccc;
+    }
+  }
+  .m-fold-up{
+    .fold-hd{
+      line-height: 48px;
+      background: #f6f6f6;
+      color: #808080;
+      position: relative;
+      padding-right: 50px;
+      padding-left:16px;
+      .icon-arrow{
+        position: absolute;
+        top: 0;
+        color: #999;
+        font-size: 12px;
+        right: 16px;
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        bottom: -18px;
+        left: 0;
+        background: url("../img/m-fold-hd-shadow.png") no-repeat center/100%;
+        display: block;
+        width: 100%;
+        height: 18px;
+      }
+    }
+  }
+  .m-goods-detail{
+    $padding: 14px;
+    padding: $padding;
+    display: flex;
+    .img{
+      width: 98px;
+      height: 98px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .cont{
+      flex: 1;
+      padding-left: $padding;
+      position: relative;
+      width: 1%;
+      h4{
+        @include text-ellipsis(2, 20px, 14px);
+        margin: 0;
+      }
+      .cont-bt{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding-left: $padding;
+        width: 100%;
+      }
+      .price{
+        color: #999;
+        span{
+          &:nth-child(2){
+            float: right;
+          }
+        }
+      }
+    }
+  }
+  .m-info-list{
+    background: #fff;
+    padding: 14px;
+    li{
+      display: flex;
+      line-height: 20px;
+      span{
+        &:nth-child(1){
+          width: 100px;
+          color: #808080;
+        }
+        &:nth-child(2){
+          flex: 1;
+          width: 1%;
+          text-align: right;
+          @include text-ellipsis()
+        }
+      }
+    }
+  }
+  .m-pos{
+    margin: 20px 0 0 11%;
+    ul{
+      padding-left: 30px;
+    }
+    li{
+      position: relative;
+      border-bottom: dotted 1px #ccc;
+      padding: 14px 0;
+      &:last-child{
+        border: 0;
+        &:after{
+          border: 0;
+        }
+      }
+      &:before,&:after{
+        position: absolute;
+        top: 20px;
+        left: -30px;
+      }
+      &:before{
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: #999;
+        border: solid 2px #fff;
+        border-radius: 50%;
+        display: block;
+      }
+      &:after{
+        content: '';
+        height: 100%;
+        width: 0;
+        border: dotted 1px #cccccc;
+        left: -26px;
+        top: 30px;
+      }
+    }
+    li.status-pos-cur{
+      color: $g-color-red;
+      &:before{
+        background: $g-color-red;
+        border-color: #ffcccc;
+      }
+    }
+  }
+  .m-detail-header{
+    display: flex;
+    padding: 0 14px;
+    line-height: 44px;
+    border-bottom: solid 1px #e4e4e4;
+    .lf{
+      flex: 1;
+      width: 1%;
+    }
+    .rt{
+      width: 120px;
+      text-align: right;
+    }
+  }
+  .m-detail-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: solid 1px #ccc;
+    text-align: right;
+    background: #fff;
+    padding: 0 16px;
+    .g-btn{
+      margin-left: 10px;
+    }
+  }
+}
+
+/*参拍中列表*/
 .page-order{
   p{
     padding: 0;
@@ -7,14 +266,28 @@
     position: relative;
     margin: 20px 14px;
     border-radius: 6px;
+    border-top: solid 1px #f0f0f0;
     display: flex;
     @include box-shadow();
     .img{
       width: 150px;
       height: 150px;
       overflow: hidden;
+      position: relative;
       img{
         width: 100%;
+        height: 100%;
+      }
+      .time{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 6px;
+        background: rgba(0,0,0,.6);
+        color: #fff;
+        padding: 6px;
+        font-size: 12px;
       }
     }
     .cont{
@@ -49,6 +322,436 @@
         line-height: 26px;
         text-align: center;
       }
+    }
+  }
+}
+/*参拍中详情*/
+.page-order-detail{
+  p{
+    padding: 0;
+    margin: 0;
+  }
+  $color-font-main: #111;
+  color: $color-font-main;
+  .detail-title{
+    display: flex;
+    span{
+      text-align: center;
+      line-height: 42px;
+      &:nth-child(1){
+        background: $g-color-light-red;
+        color: #fff;
+        width: 98px;
+      }
+      &:nth-child(2){
+        flex: 1;
+        background: #f5f5f5;
+      }
+      b{
+        font-weight: normal;
+      }
+    }
+  }
+  .card{
+    border: solid 1px #f2f2f2;
+    @include box-shadow();
+    border-radius: 6px;
+    p{
+      display: flex;
+      padding: 8px;
+      span{
+        &:nth-child(1){
+          width: 100px;
+          color: $g-font-color-grey;
+        }
+        &:nth-child(2){
+          flex: 1;
+          text-align: right;
+        }
+      }
+    }
+    .hd{
+      p{
+        padding: 16px 8px;
+      }
+    }
+    .bd{
+      padding: 8px 0;
+      border-top: solid 1px #c2c2c2;
+      line-height: 18px;
+    }
+  }
+  .record{
+    .tit{
+      background: #f5f5f5;
+      color: #999;
+      line-height: 40px;
+      padding: 0 14px;
+    }
+    .record-main{
+      .item{
+        display: flex;
+        border-bottom: solid 1px #ccc;
+        color: #999;
+        padding: 0 14px;
+        line-height: 36px;
+        span{
+          &:nth-child(1){
+            flex: 1;
+            color: $g-color-red;
+          }
+          &:nth-child(2){
+            flex: 1;
+            color: #565656;
+          }
+          &:nth-child(3){
+            flex: 2;
+            color: #565656;
+          }
+          &:nth-child(4){
+            flex: 1;
+            color: #565656;
+          }
+        }
+      }
+    }
+    .record-main-more{
+      height: 216px;
+    }
+  }
+}
+/*已竞得列表*/
+.page-order-list-done{
+  .font-l{
+    font-size: 28px;
+  }
+  background: #eee;
+  .item-box{
+    $padding: 14px;
+    margin: 14px 0;
+    background: #fff;
+    .hd{
+      position: relative;
+      display: flex;
+      border-bottom: solid 1px #ccc;
+      line-height: 42px;
+      .g-check-box{
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        top: 0;
+        left: -$padding;
+        height: 42px;
+        line-height: 42px;
+      }
+      .tit{
+        flex: 1;
+        width: 1%;
+        padding-right: 10px;
+        padding-left: $padding;
+        @include text-ellipsis(1, 42px, 14px)
+      }
+      .status{
+        text-align: right;
+        width: 90px;
+        padding-right: 6px;
+      }
+      .status-address{
+        padding-right: 0;
+        background: $g-color-red;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+    .bd{
+      overflow: hidden;
+    }
+    .bt{
+      border-top: solid 1px $g-color-grey;
+      text-align: right;
+      padding: 0 $padding;
+      .g-btn{
+        display: inline-block;
+        width: 60px;
+        border: solid 1px $g-color-red;
+        background: #fff;
+        color: $g-color-red;
+        font-size: 12px;
+        padding: 0;
+        text-align: center;
+        line-height: 20px;
+      }
+    }
+    .notice{
+      text-align: left;
+      border-top: solid 1px $g-color-grey;
+      position: relative;
+      padding: 10px 30px 10px $padding;
+      .icon-arrow-rt{
+        position: absolute;
+        right: 8px;
+        top: 26px;
+        color: #999;
+      }
+    }
+    .item-in{
+      position: relative;
+      overflow: hidden;
+      padding-left: $padding;
+      border-bottom: dashed 1px $g-color-grey;
+      margin-bottom: -2px;
+      .m-goods-detail{
+        padding-left: 0;
+      }
+      .other{
+        background: #f5f5f5;
+        padding: 6px $padding;
+        line-height: 30px;
+        color: #808080;
+        span{
+          vertical-align: middle;
+        }
+        .btn{
+          display: inline-block;
+          border-radius: 6px;
+          padding: 0 6px;
+          line-height: 26px;
+          background: $g-color-red;
+          color: #fff;
+          float: right;
+          margin-top: 3px;
+          font-size: 12px;
+        }
+      }
+      .tip{
+        padding: 10px 0;
+        color: $g-font-color-grey;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  }
+  .item-box-check{
+    $padding: 16px;
+    .item-in{
+      padding-left: 48px;
+    }
+  }
+  .item-box-delete{
+    .status{
+      color: #999;
+    }
+    .price{
+      margin-top: 0;
+    }
+    .cont-bt{
+
+    }
+  }
+}
+
+/*支付详单*/
+.page-pay{
+  $color-yellow: #fff7ab;
+  .tip{
+    text-align: center;
+    height: 68px;
+    background: $color-yellow;
+    padding: 15px;
+  }
+  .m-pay{
+    .lf{
+      flex: 1;
+      width: auto;
+    }
+    .rt{
+      width: 100px;
+      flex: none;
+    }
+  }
+}
+
+/*物流详单*/
+.page-deliver{
+  $padding: 14px;
+  .info{
+    background: #fff;
+    padding: $padding;
+    li{
+      display: flex;
+      line-height: 20px;
+      span{
+        &:nth-child(1){
+          width: 100px;
+          color: #808080;
+        }
+        &:nth-child(2){
+          flex: 1;
+          width: 1%;
+          text-align: right;
+          @include text-ellipsis()
+        }
+      }
+    }
+  }
+  .goods-list{
+    position: relative;
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    height: 390px;
+    overflow: hidden;
+    /*-webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    transition: height 0.5s;*/
+    .goods-box-bd{
+
+    }
+    .goods-box-bt{
+      border-top: dashed 1px #ccc;
+      line-height: 42px;
+      text-align: right;
+      padding: 0 16px;
+    }
+    .goods-box{
+      border: solid 1px #ccc;
+      margin: -1px;
+    }
+    .goods-more{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      line-height: 44px;
+      text-align: center;
+      color: #999;
+      background: #fff;
+      width: 100%;
+      border-top: solid 1px #ccc;
+      .iconfont{
+        color: #ccc;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+      .icon-arrow,.icon-arrow-bt{
+        display: inline-block;
+        transform: scale(.7);
+      }
+      .icon-arrow-bt{
+        transform: rotate(180deg) scale(.7);
+      }
+    }
+  }
+  .goods-list-all{
+    height: auto;
+  }
+  .goods-list-less{
+    height: auto;
+    .goods-more{
+      display: none;
+    }
+  }
+  .deliver-detail{
+    background: #eee;
+    padding: 20px 14px;
+    .info{
+      padding-bottom: 30px;
+    }
+    .tracking{
+      position: relative;
+      background: #fff;
+      border-top: dotted 1px #ccc;
+      border-radius: 0 0 6px 6px;
+      &:before,&:after{
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #eee;
+        top: -10px;
+      }
+      &:before{
+        left: -10px;
+      }
+      &:after{
+        right: -10px;
+      }
+      .steps{
+        display: flex;
+        margin: 30px 0 20px 0;
+        color: #ccc;
+        .iconfont{
+          position: relative;
+          display: inline-block;
+          width: 34px;
+          height: 34px;
+          font-size: 18px;
+          border: solid 1px #ccc;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 32px;
+          background: #fff;
+          z-index: 1;
+        }
+        .step{
+          flex: 1;
+          width: 1%;
+          text-align: center;
+          position: relative;
+          b{
+            display: block;
+            font-weight: normal;
+          }
+          &:before{
+            content: '';
+            display: block;
+            border-top: dotted 1px #ccc;
+            width: 100%;
+            height: 0;
+            position: absolute;
+            left: -50%;
+            top: 35%;
+          }
+        }
+        .step1:before{
+          content: '';
+          border: 0;
+        }
+      }
+      .tip{
+        position: relative;
+        line-height: 42px;
+        text-align: center;
+        color: #ccc;
+        border-top: solid 1px #f5f5f5;
+        margin-top: 20px;
+      }
+      .status-done{
+        color: $g-color-red;
+        .iconfont{
+          border-color: $g-color-red;
+          color: $g-color-red;
+        }
+      }
+      .status-cur{
+        color: $g-color-red;
+        .iconfont{
+          border-color: $g-color-red;
+          background: $g-color-red;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+/*退货详情*/
+.page-returned{
+  .m-card{
+    .card-hd{
+      padding: 0;
     }
   }
 }

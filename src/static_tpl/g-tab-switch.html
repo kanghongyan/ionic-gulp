@@ -1,0 +1,5 @@
+<div class="g-tab-switch">
+  <a ng-class="{'cur': $index === defaultTab}" ng-repeat="tab in tabs" ng-click="switchTo($index)">
+    <span>{{ tab.title }}</span>
+  </a>
+</div>

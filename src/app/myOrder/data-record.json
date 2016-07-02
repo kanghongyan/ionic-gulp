@@ -1,0 +1,20 @@
+{
+  "message": "ok",
+  "status": 200,
+  "data": {
+    "list": [
+      {
+        "name": "ffff",
+        "status": "领先",
+        "time": "2222222",
+        "cash": 2300
+      },{
+        "name": "ffff",
+        "status": "领先",
+        "time": "2222222",
+        "cash": 2300
+      }
+    ],
+    "all": 20
+  }
+}

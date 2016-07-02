@@ -1,0 +1,30 @@
+{
+  "message": "ok",
+  "status": 200,
+  "data":{
+    "list":[
+      {
+        "time": "1466409730291",
+        "items":[{
+            "id": 110,
+            "timeFlag": 0,
+            "cont": "sdfsfsdsfdsdfsfdsfdsfdf是东方之门什么地方",
+            "readFlag": 0
+          },{
+            "id": 111,
+            "timeFlag": 1,
+            "cont": "即将收到了快速的",
+            "readFlag": 1
+          }]
+      },{
+        "time": "1456971010000",
+        "items":[{
+          "id": 112,
+          "timeFlag": 0,
+          "cont": "ddddd",
+          "readFlag": 0
+        }]
+      }
+    ]
+  }
+}

@@ -1,13 +1,36 @@
 <ion-view class="page-message">
   <ion-content class="inner">
-    <p class="time-box">2010-10-10 10:10</p>
-    <div class="message-item-list">
-      <p class="status">专场即将开始</p>
-      <p>您设置提醒“知名普洱压箱茶叶专场”即将开始，拍卖时间：11月13日 09：00，请抓紧</p>
+    <div ng-repeat="lists in msgList">
+      <p class="time-box">{{lists.time | date: 'yyyy-mm-dd HH:mm'}}</p>
+      <div ng-repeat="list in lists.items" class="message-item-list" ng-click="showDetail(list)">
+        <p class="status" ng-class="{'status-red': !list.readFlag}">{{list.timeFlag | msgStatus}}</p>
+        <p class="cont">{{list.id}} {{list.cont}}</p>
+        <i class="iconfont icon-trash" ng-click="showConfirm($event, list.id)"></i>
+      </div>
     </div>
-    <div class="message-item-list">
-      <p class="status">专场即将开始</p>
-      <p>您设置提醒“知名普洱压箱茶叶专场”即将开始，拍卖时间：11月13日 09：00，请抓紧</p>
+
+    <div class="no-data" ng-show="empty">
+      empty
     </div>
+
+    <ion-infinite-scroll
+        ng-if="hasData"
+        on-infinite="loadMore()"
+        distance="1%">
+    </ion-infinite-scroll>
   </ion-content>
+
 </ion-view>
+
+<script id="msg-modal.html" type="text/ng-template">
+  <ion-modal-view class="page-msg-detail">
+    <ion-content>
+      <h4>会员星级体系全新推出</h4>
+      <p>{{currentDetail.cont}}</p>
+      <div class="content">
+        <p>content</p>
+      </div>
+    </ion-content>
+    <a class="g-btn">删除</a>
+  </ion-modal-view>
+</script>

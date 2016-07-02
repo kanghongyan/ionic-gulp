@@ -16,6 +16,15 @@
 
   gCountDown.$inject = ['$timeout'];
 
+  /**
+   * 倒计时directive
+   * initValue: 截止时间/开始时间
+   * serverTime: 服务器时间
+   * countFlag: true(xxx后结束)/false(xxx后开始)
+   * @param $timeout
+   * @returns {{restrict: string, replace: boolean, scope: {initValue: string, serverTime: string, countFlag: string}, link: link}}
+   */
+
   function gCountDown($timeout){
     return{
       restrict: 'E',

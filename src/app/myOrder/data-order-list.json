@@ -1,0 +1,68 @@
+{
+  "status": 200,
+  "message": "",
+  "total":2,
+  "data":[
+    {
+      "order_id": "safsdfsdf1132",
+      "goods_id": "123123",
+      "goods_name": "拍品名称",
+      "vendor_id": "123123",
+      "vendor_name": "商户名称",
+      "pay_price": "123",
+      "is_deposit":1,
+      "retainage_price": "123",
+      "deposit_price": "123",
+      "status": "1",
+      "now_timestamp": "1231231"
+    },{
+      "order_id": "safsdfsdf1132",
+      "goods_id": "123123",
+      "goods_name": "拍品名称",
+      "vendor_id": "123123",
+      "vendor_name": "商户名称",
+      "pay_price": "123",
+      "is_deposit":1,
+      "retainage_price": "123",
+      "deposit_price": "123",
+      "status": "1",
+      "now_timestamp": "1231231"
+    },{
+      "order_id": "safsdfsdf1132",
+      "goods_id": "123123",
+      "goods_name": "拍品名称",
+      "vendor_id": "123123",
+      "vendor_name": "商户名称",
+      "pay_price": "123",
+      "is_deposit":1,
+      "retainage_price": "123",
+      "deposit_price": "123",
+      "status": "2",
+      "now_timestamp": "1231231"
+    },{
+      "order_id": "safsdfsdf1132",
+      "goods_id": "123123",
+      "goods_name": "拍品名称",
+      "vendor_id": "123123",
+      "vendor_name": "商户名称",
+      "pay_price": "123",
+      "is_deposit":1,
+      "retainage_price": "123",
+      "deposit_price": "123",
+      "status": "3",
+      "now_timestamp": "1231231"
+    },{
+      "order_id": "safsdfsdf1132",
+      "goods_id": "123123",
+      "goods_name": "拍品名称",
+      "vendor_id": "123123",
+      "vendor_name": "商户名称",
+      "pay_price": "123",
+      "is_deposit":1,
+      "retainage_price": "123",
+      "deposit_price": "123",
+      "status": "4",
+      "now_timestamp": "1231231"
+    }
+  ]
+}

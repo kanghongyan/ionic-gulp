@@ -1,5 +1,440 @@
-<ion-view>
+<ion-view class="page-order-common page-order-list-done" g-hide-tabs="hideTabs">
   <ion-content>
-    已拍下
+    <g-tab-switch tabs="tabsObj" default-tab=0></g-tab-switch>
+    <!--0 全部订单-->
+    <div ng-show="curTab == 0">
+      <div class="order-list">
+        <!--待付款-->
+        <div class="item-box">
+          <div class="hd">
+            <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+            <span class="status g-highlight-red">【待付款】</span>
+          </div>
+          <div class="bd">
+            <div class="item-in">
+              <div class="m-goods-detail">
+                <div class="img">
+                  <img src="">
+                </div>
+                <div class="cont">
+                  <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                  <div class="cont-bt">
+                    <p class="price">
+                      <span>成交价</span>
+                      <span class="g-highlight-red">&yen;36,000</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p class="other">
+                <span>拍品尾款：</span>
+                <span class="g-highlight-red font-l">&yen; 2,000</span>
+                <a class="btn" ng-click="toPay()">去支付</a>
+              </p>
+              <p class="tip">请在3月18日13：00前补交尾款，否则扣除保证金 ¥200</p>
+            </div>
+            <div class="item-in">
+              <div class="m-goods-detail">
+                <div class="img">
+                  <img src="">
+                </div>
+                <div class="cont">
+                  <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                  <div class="cont-bt">
+                    <p class="price">
+                      <span>成交价</span>
+                      <span class="g-highlight-red">&yen;36,000</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p class="other">
+                <span>拍品尾款：</span>
+                <span class="g-highlight-red font-l">&yen; 2,000</span>
+                <a class="btn">去支付</a>
+              </p>
+              <p class="tip">请在3月18日13：00前补交尾款，否则扣除保证金 ¥200</p>
+            </div>
+          </div>
+        </div>
+        <!--设置收货地址-->
+        <div class="item-box">
+          <div class="hd">
+            <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+            <span class="status g-highlight-red status-address">设置收货地址</span>
+          </div>
+          <div class="bd">
+            <div class="item-in">
+              <div class="m-goods-detail">
+                <div class="img">
+                  <img src="">
+                </div>
+                <div class="cont">
+                  <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                  <div class="cont-bt">
+                    <p class="price">
+                      <span>成交价</span>
+                      <span class="g-highlight-red">&yen;36,000</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item-in">
+              <div class="m-goods-detail">
+                <div class="img">
+                  <img src="">
+                </div>
+                <div class="cont">
+                  <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                  <div class="cont-bt">
+                    <p class="price">
+                      <span>成交价</span>
+                      <span class="g-highlight-red">&yen;36,000</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--待发货-->
+        <div class="item-box">
+          <div class="hd">
+            <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+            <span class="status g-highlight-red">【待发货】</span>
+          </div>
+          <div class="bd">
+            <div class="item-in" ui-sref="tab.undeliveredOrder">
+              <div class="m-goods-detail">
+                <div class="img">
+                  <img src="">
+                </div>
+                <div class="cont">
+                  <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                  <div class="cont-bt">
+                    <p class="price">
+                      <span>成交价</span>
+                      <span class="g-highlight-red">&yen;36,000</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--待收货-->
+        <div class="item-box">
+          <div class="hd">
+            <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+            <span class="status g-highlight-red">【待收货】</span>
+          </div>
+          <div class="bd">
+            <div class="item-in">
+              <div class="m-goods-detail">
+                <div class="img">
+                  <img src="">
+                </div>
+                <div class="cont">
+                  <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                  <div class="cont-bt">
+                    <p class="price">
+                      <span>成交价</span>
+                      <span class="g-highlight-red">&yen;36,000</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bt">
+            <a class="g-btn">查看物流</a>
+          </div>
+        </div>
+        <!--已收货-->
+        <div class="item-box">
+          <div class="hd">
+            <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+            <span class="status g-highlight-red">【已收货】</span>
+          </div>
+          <div class="bd">
+            <div class="item-in">
+              <div class="m-goods-detail">
+                <div class="img">
+                  <img src="">
+                </div>
+                <div class="cont">
+                  <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                  <div class="cont-bt">
+                    <p class="price">
+                      <span>成交价</span>
+                      <span class="g-highlight-red">&yen;36,000</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bt">
+            <a class="g-btn">查看物流</a>
+          </div>
+        </div>
+        <!--退货通过-->
+        <div class="item-box">
+          <div class="hd">
+            <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+            <span class="status g-highlight-red">【退货通过】</span>
+          </div>
+          <div class="bd">
+            <div class="item-in" ui-sref="tab.returnedOrder">
+              <div class="m-goods-detail">
+                <div class="img">
+                  <img src="">
+                </div>
+                <div class="cont">
+                  <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                  <div class="cont-bt">
+                    <p class="price">
+                      <span>成交价</span>
+                      <span class="g-highlight-red">&yen;36,000</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ion-infinite-scroll
+          ng-if="true"
+          on-infinite="loadMore()"
+          distance="1%">
+      </ion-infinite-scroll>
+    </div>
+
+    <!--1 待付款订单-->
+    <div ng-show="curTab ==1" style="padding-bottom: 50px;">
+      <!--待付款-->
+      <div class="item-box item-box-check" ng-repeat="list in orderListUnpay">
+        <p ng-bind="indexMark=$index" style="display:none"></p>
+        <div class="hd">
+          <p class="tit">
+            <g-check-box ng-checked="isSelectedSection(indexMark, list.item.length)" ng-click="updateCheckSection($event, indexMark)" id={{indexMark}}></g-check-box>
+            <label>一点珍藏行 | 中国书画专场(2件)更多文字</label>
+          </p>
+        </div>
+        <div class="bd">
+          <div class="item-in" ng-repeat="item in list.item">
+            <g-check-box ng-checked="isSelected(indexMark+'-'+item.id)" ng-click="updateCheck($event, indexMark+'-'+item.id)" id={{indexMark+"-"+item.id}}></g-check-box>
+            <div class="m-goods-detail">
+              <div class="img">
+                <img src="">
+              </div>
+              <div class="cont">
+                <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                <div class="cont-bt">
+                  <p class="price">
+                    <span>成交价</span>
+                    <span class="g-highlight-red">&yen;36,000</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p class="other">
+              <span>拍品尾款：</span>
+              <span class="g-highlight-red font-l">&yen; 2,000</span>
+            </p>
+            <p class="tip">请在3月18日13：00前补交尾款，否则扣除保证金 ¥200</p>
+          </div>
+        </div>
+      </div>
+      <!--待付款-扣除保证金-->
+      <div class="item-box item-box-delete">
+        <div class="hd">
+          <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+          <div class="status"><i class="iconfont icon-trash"></i>删除</div>
+        </div>
+        <div class="bd">
+          <div class="item-in">
+            <div class="m-goods-detail">
+              <div class="img">
+                <img src="">
+              </div>
+              <div class="cont">
+                <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                <div class="cont-bt">
+                  <p class="price">
+                    <span>成交价</span>
+                    <span>&yen;36,000</span>
+                  </p>
+                  <p class="price">
+                    <span>成交价</span>
+                    <span>&yen;36,000</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bt notice">
+          <p>请在3月18日13：00前补交尾款，否则扣除保证金 <span class="g-highlight-grey">¥200</span></p>
+          <i class="iconfont icon-arrow icon-arrow-rt"></i>
+        </div>
+      </div>
+
+      <!--<ion-infinite-scroll
+          ng-if="true"
+          on-infinite="loadMore()"
+          distance="1%">
+      </ion-infinite-scroll>-->
+    </div>
+
+    <!--2 待发货订单-->
+    <div ng-show="curTab ==2 ">
+      <div class="item-box">
+        <div class="hd">
+          <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+          <span class="status g-highlight-red">【待发货】</span>
+        </div>
+        <div class="bd">
+          <div class="item-in">
+            <div class="m-goods-detail">
+              <div class="img">
+                <img src="">
+              </div>
+              <div class="cont">
+                <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                <div class="cont-bt">
+                  <p class="price">
+                    <span>实付款</span>
+                    <span class="g-highlight-red">&yen;36,000</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bt">
+          <p>情尽快设置</p>
+        </div>
+      </div>
+      <div class="item-box">
+        <div class="hd">
+          <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+          <span class="status g-highlight-red status-address">设置收货地址</span>
+        </div>
+        <div class="bd">
+          <div class="item-in">
+            <div class="m-goods-detail">
+              <div class="img">
+                <img src="">
+              </div>
+              <div class="cont">
+                <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                <div class="cont-bt">
+                  <p class="price">
+                    <span>成交价</span>
+                    <span class="g-highlight-red">&yen;36,000</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item-in">
+            <div class="m-goods-detail">
+              <div class="img">
+                <img src="">
+              </div>
+              <div class="cont">
+                <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                <div class="cont-bt">
+                  <p class="price">
+                    <span>成交价</span>
+                    <span class="g-highlight-red">&yen;36,000</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--3 待收货-->
+    <div ng-show="curTab ==3 ">
+      <div class="item-box">
+        <div class="hd">
+          <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+          <span class="status g-highlight-red">【待收货】</span>
+        </div>
+        <div class="bd">
+          <div class="item-in">
+            <div class="m-goods-detail">
+              <div class="img">
+                <img src="">
+              </div>
+              <div class="cont">
+                <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                <div class="cont-bt">
+                  <p class="price">
+                    <span>成交价</span>
+                    <span class="g-highlight-red">&yen;36,000</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bt">
+          <a class="g-btn">查看物流</a>
+        </div>
+      </div>
+    </div>
+
+    <!--4 已收货-->
+    <div ng-show="curTab ==4 ">
+      <div class="item-box">
+        <div class="hd">
+          <p class="tit">一点珍藏行 | 中国书画专场(2件)更多文字</p>
+          <span class="status g-highlight-red">【已收货】</span>
+        </div>
+        <div class="bd">
+          <div class="item-in" ui-sref="tab.deliveredOrder">
+            <div class="m-goods-detail">
+              <div class="img">
+                <img src="">
+              </div>
+              <div class="cont">
+                <h4>百年实打实的方法反反复复凤飞飞急急急急急急</h4>
+                <div class="cont-bt">
+                  <p class="price">
+                    <span>成交价</span>
+                    <span class="g-highlight-red">&yen;36,000</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bt">
+          <a class="g-btn" ui-sref="tab.deliverInfo({id: 1234})">查看物流</a>
+        </div>
+      </div>
+    </div>
+
+
   </ion-content>
+
+  <div class="m-pay" ng-show="curTab == 1">
+    <p class="lf">
+      <g-check-box ng-checked="isSelectedAll()" ng-click="updateCheckAll($event)"></g-check-box>
+      <span class="select-all">全选</span>
+    </p>
+    <p class="rt">
+      <span>合计 <i class="g-highlight-red">¥ 2,000</i></span>
+      <a class="g-btn" ng-click="toPayAll()">支付</a>
+    </p>
+  </div>
+
 </ion-view>
