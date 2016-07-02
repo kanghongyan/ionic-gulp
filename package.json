@@ -24,6 +24,7 @@
   "devDependencies": {
     "bower": "^1.3.3",
     "del": "^2.2.0",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-copy": "0.0.2",
     "gulp-postcss": "^6.1.0",
     "gulp-strip-debug": "^1.1.0",
@@ -46,7 +47,7 @@
   "cordovaPlatforms": [],
   "author": "kanghongyan",
   "license": "MIT",
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "git@git.epailive.com:epailive/epai_php_auction.git"
   }
